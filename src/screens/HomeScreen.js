@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from '../styles/styles';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import styles from '../styles/Styles';
 
 const HomeScreen = () => {
   const [people, setPeople] = useState([]);
@@ -34,7 +35,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
       <FlatList
         data={people}
         keyExtractor={(item) => item.id.toString()}
@@ -57,7 +59,8 @@ const HomeScreen = () => {
       <TouchableOpacity style={styles.addIcon} onPress={() => navigation.navigate('Add')}>
         <Icon name="plus-circle" size={50} color="#007bff" />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView >
+    </SafeAreaProvider>
   );
 };
 

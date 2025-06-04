@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import styles from '../styles/styles';
+import styles from '../styles/Styles';
 
 const AddEditScreen = () => {
   const navigation = useNavigation();
