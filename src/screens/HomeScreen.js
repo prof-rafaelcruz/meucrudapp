@@ -5,18 +5,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 
 const HomeScreen = () => {
-  const [peoples, setPeoples] = useState([]);
+  const [people, setPeople] = useState([]);
   const navigation = useNavigation();
 
   useEffect(() => {
-    fetchPeoples();
+    fetchPeople();
   }, []);
 
-  const fetchPeoples = async () => {
+  const fetchPeople = async () => {
     try {
       const response = await fetch('http://localhost:3000/people');
       const data = await response.json();
-      setPeoples(data);
+      setPeople(data);
     } catch (error) {
       console.error(error);
     }
@@ -27,7 +27,7 @@ const HomeScreen = () => {
       await fetch(`http://localhost:3000/people/${id}`, {
         method: 'DELETE',
       });
-      fetchPeoples();
+      fetchPeople();
     } catch (error) {
       console.error(error);
     }
@@ -36,7 +36,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={peoples}
+        data={people}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>

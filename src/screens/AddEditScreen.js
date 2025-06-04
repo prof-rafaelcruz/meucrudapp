@@ -61,7 +61,7 @@ const AddEditScreen = () => {
         keyboardType="email-address"
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>{person ? 'Atualizar' : 'Adicionar'}</Text>
+        <Text style={styles.addButtonText}>{person ? 'Atualizar' : 'Adicionar'}</Text>
       </TouchableOpacity>
     </View>
   );
